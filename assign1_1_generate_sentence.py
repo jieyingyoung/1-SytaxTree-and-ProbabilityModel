@@ -83,15 +83,14 @@ def get_generation_by_gram(gramma_str, target, equal_split = '=', or_split = '|'
     return generated
 
 def generate_n(rules,target,number_sentence):
-    for i in range(number_sentence):
-        print(i +1, get_generation_by_gram(rules,target))
-    return
+    generated_sentences = [get_generation_by_gram(rules,target) for i in range(number_sentence)]
+    return generated_sentences
 
 print(get_generation_by_gram(human_language, target = 'human'))
 print(get_generation_by_gram(reception_language, target = 'host'))
 # print(get_generation_by_gram(poem, target = 'yongE'))
 # print(get_generation_by_gram(psychologist, target = 'psychologist'))
 
-generate_n(poem, 'yongE', 4)
-generate_n(psychologist,'psychologist', 3)
+# generate_n(poem, 'yongE', 4)
+print(generate_n(psychologist,'psychologist', 3))
 
